@@ -1,9 +1,0 @@
-package com.rentalcar.service;
-
-import com.rentalcar.pojos.Car;
-
-public interface CarService {
-
-	Car addCar(Car car);
-
-}
