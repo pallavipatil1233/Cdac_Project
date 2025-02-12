@@ -1,0 +1,5 @@
+package com.rentalcar.pojos;
+
+public class Payment {
+
+}

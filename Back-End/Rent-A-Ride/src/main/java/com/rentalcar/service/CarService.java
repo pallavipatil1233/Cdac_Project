@@ -1,0 +1,23 @@
+package com.rentalcar.service;
+
+import java.util.List;
+import java.util.Optional;
+
+import com.rentalcar.pojos.Car;
+
+public interface CarService {
+
+    // Fetch all cars
+    List<Car> getAllCars();
+
+    // Add a car and return the saved car object
+    Car addCar(Car car);
+
+    // Book a car (Customer)
+    String bookCar(Long carId, Long customerId);
+    
+    Car updateCar(Long id, Car carDetails);
+    void deleteCar(Long id);
+    
+    Optional<Car> findById(Long id);
+}

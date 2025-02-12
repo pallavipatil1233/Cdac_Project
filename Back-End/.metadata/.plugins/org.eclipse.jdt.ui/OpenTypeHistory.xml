@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<typeInfoHistroy>
+    <typeInfo handle="=spring_boot_backend_template/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.blogs.service{CarService.java[CarService" modifiers="513" timestamp="1736309542196"/>
+    <typeInfo handle="=Rent-A-Ride/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.rentalcar.service{CustomerService.java[CustomerService" modifiers="513" timestamp="1738507383578"/>
+    <typeInfo handle="=Rent-A-Ride/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.rentalcar.service{AdminService.java[AdminService" modifiers="513" timestamp="1738513109800"/>
+    <typeInfo handle="=Rent-A-Ride/C:\/Users\/HP\/.m2\/repository\/org\/springframework\/data\/spring-data-jpa\/3.4.2\/spring-data-jpa-3.4.2.jar=/maven.pomderived=/true=/=/maven.groupId=/org.springframework.data=/=/maven.artifactId=/spring-data-jpa=/=/maven.version=/3.4.2=/=/maven.scope=/compile=/=/maven.pomderived=/true=/&lt;org.springframework.data.jpa.repository(JpaRepository.class[JpaRepository" modifiers="1537" timestamp="1738493207404"/>
+    <typeInfo handle="=Rent-A-Ride/C:\/Users\/HP\/Downloads\/Adv Java Soft\/sts-4.26.0.RELEASE\/plugins\/org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_21.0.4.v20240802-1551\/jre\/lib\/jrt-fs.jar`java.desktop=/javadoc_location=/https:\/\/docs.oracle.com\/en\/java\/javase\/21\/docs\/api\/=/=/maven.pomderived=/true=/&lt;javax.swing.text(Caret.class[Caret" modifiers="1537" timestamp="1722614096000"/>
+</typeInfoHistroy>

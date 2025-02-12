@@ -1,0 +1,7 @@
+package com.rentalcar.service;
+
+public class AdminServiceImpl implements AdminService {
+	
+	
+
+}

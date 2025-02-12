@@ -1,0 +1,19 @@
+package com.rentalcar.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.rentalcar.dao.BookingDao;
+import com.rentalcar.pojos.Booking;
+
+public class BookingServiceImpl implements BookingService{
+
+	    @Autowired
+	    private BookingDao bookingDao;
+
+	    @Override
+	    public List<Booking> getAllBookings() {
+	        return bookingDao.findAll();
+	    }
+}

@@ -1,0 +1,74 @@
+package com.rentalcar.service;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.rentalcar.dao.CarDao;
+import com.rentalcar.pojos.Car;
+@Service
+@Transactional
+public class CarServiceImpl implements CarService{
+
+	@Autowired
+	private CarDao carDao;
+	
+
+    // Fetch all cars
+    public List<Car> getAllCars() {
+        return carDao.findAll();
+    }
+
+    // Add a car and return the saved car object
+    public Car addCar(Car car) {
+        return carDao.save(car);  // save returns the car after it's persisted
+    }
+
+    // Book a car (Customer)
+    public String bookCar(Long carId, Long customerId) {
+        Optional<Car> carOpt = carDao.findById(carId);
+
+        if (carOpt.isPresent()) {
+            Car car = carOpt.get();
+
+            if (car.getStatus() == Car.CarStatus.AVAILABLE) {
+                // Mark the car as booked
+                car.setStatus(Car.CarStatus.BOOKED);
+                carDao.save(car);
+                return "Car booked successfully!";
+            } else {
+                return "Car is already booked!";
+            }
+        } else {
+            return "Car not found!";
+        }
+    }
+    
+    @Override
+    public Car updateCar(Long id, Car carDetails) {
+        Optional<Car> existingCar = carDao.findById(id);
+        if (existingCar.isPresent()) {
+            Car car = existingCar.get();
+            car.setBrand(carDetails.getBrand());
+            car.setModel(carDetails.getModel());
+            car.setRegistrationNumber(carDetails.getRegistrationNumber());
+            car.setStatus(carDetails.getStatus());
+            car.setPricePerDay(carDetails.getPricePerDay());
+            car.setCity(carDetails.getCity());
+            return carDao.save(car);
+        }
+        throw new RuntimeException("Car not found with ID: " + id);
+    }
+
+    @Override
+    public void deleteCar(Long id) {
+        if (carDao.existsById(id)) {
+            carDao.deleteById(id);
+        } else {
+            throw new RuntimeException("Car not found with ID: " + id);
+        }
+    }
+}

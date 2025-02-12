@@ -1,0 +1,44 @@
+package com.rentalcar.service;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.rentalcar.dao.CarDao;
+import com.rentalcar.pojos.Car;
+
+@Service
+public class CarService {
+
+    @Autowired
+    private CarDao carDao;
+
+    public List<Car> getAllCars() {
+        return carDao.findAll();
+    }
+
+    public Car addCar(Car car) {
+    	carDao.save(car);
+    }
+
+    public String bookCar(Long carId, Long customerId) {
+        Optional<Car> carOpt = carDao.findById(carId);
+
+        if (carOpt.isPresent()) {
+            Car car = carOpt.get();
+
+            if (car.getStatus() == Car.CarStatus.AVAILABLE) {
+                // Mark the car as booked
+                car.setStatus(Car.CarStatus.BOOKED);
+                carDao.save(car);
+                return "Car booked successfully!";
+            } else {
+                return "Car is already booked!";
+            }
+        } else {
+            return "Car not found!";
+        }
+    }
+}
